@@ -1,0 +1,124 @@
+c# is a modern ,general purpose,object oriented language developed by microsoft and approved by ecma and iso.
+it  has roots in c family.c# enables developers build variety of secure and robust applicaitons that run on .net framework.
+c# is used in creating windows,mobile,client-server,database applications,web services.
+
+simple 
+fastspeed
+modern language object oriented 
+type safe 
+interoperability 
+scalable and updatable 
+rich library 
+component oriented
+
+mainly on microsoft -based ??
+
+
+.net framework:is an integral window component that supports multi-programming languages.
+.net framework consists of clr(common language runtime), .net framework class library[to import reusable code]
+.net supports more than 60 programming languages ,11  are developed by microsoft like 	c#,f#,vb(visual basics)
+
+
+
+.NET encompasses both the compiler and the execution runtime architecture
+
+features of .net :
+
+language:
+	1.winform - ui framework for building windows desktop apps.
+	2.asp.net[webpages  web applications (active server pages)] web app framework developed and marketed by microsoft to allow programmers to build dynamic websites .
+	3.ado.net(activex data objects) - consists of managed classes that allows .net applications to connect to data sources such as microsoft sql server,microsoft access,oracle,xml
+	
+library:
+	1.framework
+	2.class library: are the shared library concept of .net they unable to componentize useful functionality into modules that can be used by multiple applications.
+	
+	
+	
+CLR: 
+	common language runtime [run the code and provides services that make development process easier]
+
+CLR Architecture:
+
+
+												Misl(microsoft intermediate language)
+												 |
+programming language	->compiler 		->		cil  (common intermediate language )										----> executable code 
+
+source code 				compilation of code             translating code into machine understandable code is carried here 
+																		JIT Compilation(just in time compiler)
+																		
+
+
+
+.net is network enable technologies .
+
+*Reading User Input from the Console
+Use Console.ReadLine() to capture text entered by the user.
+
+Console.Write("Enter your name: ");
+string name = Console.ReadLine();
+Console.WriteLine($"Hello, {name}! Welcome to C#.");
+
+
+
+
+*Working with Command-Line Arguments
+In modern .NET console apps, an args array is automatically available globally. You can pass values when running your app from the terminal.
+
+
+Parsing and Converting User Input (Numbers and Dates)
+Since Console.ReadLine() always returns a string, you need to parse it to convert it into numbers or dates. Using TryParse is best because it prevents your program from crashing if the user types invalid input.
+
+OutputType = Exe: build a runnable program, not a library.
+TargetFramework = net10.0: the project uses .NET 10.
+ImplicitUsings = enable: common using System; lines are added for you automatically.
+Nullable = enable: the compiler warns you when a value might be null. That's why you wrote string?.
+
+
+csharp_basics/                 ← your project folder (made by `dotnet new console`)
+    ├── Program.cs                 ← YOUR CODE
+    ├── csharp_basics.csproj       ← project settings
+    ├── obj/                       ← temporary build files (auto-generated)
+    └── bin/                       ← final runnable output (auto-generated)
+	
+	
+	
+obj/: the build's scratch work (auto-generated, don't touch)
+
+bin/Debug/net10.0/: your finished app (auto-generated)
+
+
+Key points
+You only edit Program.cs and sometimes the .csproj.
+bin/ and obj/ are rebuilt every time you run dotnet build or dotnet run. You can safely delete them.
+Debug is the default build mode. dotnet build -c Release puts an optimized build in bin/Release/.
+
+
+C# fully supports asynchronous programming using the async and await keywords.
+
+->Console.Write prints text to the console and keeps the cursor on the same line.
+->Console.WriteLine prints the text and automatically moves the cursor to the next line.
+
+
+
+int a= 10,b=20;
+int sum=a+b ;
+console.writeline(sum)
+
+if (sum>29)
+{
+	console.writeline("sum greater then 29");
+}
+else{
+	console.writeline("not greater than 29");
+}
+
+int a= 5;
+while(a<2)
+{
+console.writeline(a);
+a--;
+}
+
+for loop is used based on index of the data structure or array but foreach is used for irrespective of data structure directly use the data or element.
