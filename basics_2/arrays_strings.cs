@@ -30,7 +30,7 @@ jaggedArray[0] = new int[] { 1, 2 };
 jaggedArray[1] = new int[] { 3, 4, 5 };
 Console.WriteLine($"Jagged [1][2]: {jaggedArray[1][2]}"); // Output: 5
  */
-
+/* 
 // ==========================================
 // PART 2: STRING OPERATIONS IN C#
 // ==========================================
@@ -81,4 +81,4 @@ sb.Append("Line 1");
 sb.AppendLine();
 sb.Append("Line 2");
 string finalString = sb.ToString();
-Console.WriteLine($"StringBuilder output:\n{finalString}");
+Console.WriteLine($"StringBuilder output:\n{finalString}"); */
