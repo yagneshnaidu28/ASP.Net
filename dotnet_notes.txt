@@ -122,3 +122,41 @@ a--;
 }
 
 for loop is used based on index of the data structure or array but foreach is used for irrespective of data structure directly use the data or element.
+
+
+
+using System; — Imports the core system namespace containing built-in classes (comparable to Python's import statement, like import sys).
+
+namespace new_namespace — Creates a logical grouping container for your classes to prevent naming conflicts (similar to organizing code into a custom Python package or directory structure).
+
+{ — Opens a code block for the namespace (C# uses curly braces {} to define blocks, whereas Python uses indentation).
+
+
+class Program — Declares a container class named Program (in C#, every line of executable code must live inside a class, unlike Python where you can write code directly at the top level).
+
+
+static void Main(string[] args) — The mandatory entry point method where program execution automatically begins (equivalent to Python's if __name__ == "__main__": setup).
+
+
+Call-by-Reference (ref keyword)
+What it is: By default, C# passes value types (like integers) by value (it copies the data). Using the ref keyword forces C# to pass the variable by reference, meaning changes made inside the function directly modify the original variable
+
+
+
+
+Class-Level Static State Retention
+What it is:
+
+Local variables inside a regular method (AutoStorageDemo) are wiped and re-initialized to 0 every time the function runs.
+
+A class-level static variable (staticCounter) lives in memory for the lifetime of the program, retaining its updated value across multiple different function calls.
+
+Access modifiers are keywords in C# that control the visibility and accessibility of classes, methods, and variables. Unlike Python—which uses naming conventions like leading underscores (_protected or __private)—C# enforces security and encapsulation strictly at compile time.
+
+
+Summary of Core Access Modifiers
+Access ModifierAccessible Where?
+public	Anywhere in your entire program (no restrictions).
+private		Only inside the exact same class or struct where it is declared.
+protected	Inside the class and any child (derived) classes that inherit it.
+internal	Anywhere within the same project/assembly, but not outside it.

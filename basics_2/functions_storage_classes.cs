@@ -93,4 +93,15 @@ class Program
         staticCounter++; // Retains its value across different method calls
         Console.WriteLine($"Static variable persistent value: {staticCounter}");
     }
-}
+} 
+
+
+/*
+// 1. Call the function directly
+Console.WriteLine(Greet("Developer"));
+
+// 2. Define the function at the bottom of the file
+string Greet(string name)
+{
+    return $"Hello, {name}!";
+}*/
