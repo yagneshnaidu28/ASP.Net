@@ -160,3 +160,156 @@ public	Anywhere in your entire program (no restrictions).
 private		Only inside the exact same class or struct where it is declared.
 protected	Inside the class and any child (derived) classes that inherit it.
 internal	Anywhere within the same project/assembly, but not outside it.
+
+
+
+
+
+
+
+
+
+
+
+
+asp .net:
+ASP.NET Core Web API – Backend framework
+
+Controllers: API endpoints and HTTP request handling.
+Controller	Handles API requests
+
+Models: Database entity definitions.
+Model	Defines data structure
+
+Data: Database context and EF Core configuration.
+DbContext	Manages database operations
+
+Program.cs: Dependency injection and application startup.
+Program.cs	Application configuration and startup
+
+appsettings.json: Database connection configuration.
+
+=>dotnet new webapi --use-controllers -n StudentApi
+cd StudentApi
+dotnet run
+
+6. Install Entity Framework Core and MySQL packages
+dotnet add package Pomelo.EntityFrameworkCore.MySql --version 9.0.0
+
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 9.0.0
+
+dotnet add package Swashbuckle.AspNetCore
+
+dotnet tool install --global dotnet-ef --version 9.0.0
+
+
+
+dotnet ef migrations add InitialCreate
+
+
+dotnet ef database update
+
+dotnet run
+
+
+
+=>Package	Purpose
+Pomelo	MySQL provider for Entity Framework Core
+EFCore.Design	Database migrations
+Swashbuckle	Swagger API documentation and testing
+dotnet-ef	Runs migration commands
+
+
+
+
+
+
+
+
+
+Understand why each part is there
+A. Controller declaration
+[Route("api/[controller]")]
+[ApiController]
+public class StudentsController : ControllerBase
+
+
+[Route] defines the base URL.
+
+[controller] automatically takes the controller name without the Controller suffix.
+
+Therefore:
+StudentsController → /api/students
+
+
+[ApiController] enables API-specific behavior, including automatic request validation and binding.
+
+ControllerBase provides methods such as Ok(), NotFound() and CreatedAtAction().
+
+B. Dependency Injection
+private readonly AppDbContext _context;
+
+public StudentsController(AppDbContext context)
+{
+    _context = context;
+}
+
+
+We receive the database context through the constructor instead of creating a database connection manually.
+
+This is called constructor injection.
+
+C. Create operation
+_context.Students.Add(student);
+
+await _context.SaveChangesAsync();
+
+
+Add() marks the student as a new entity.
+
+SaveChangesAsync() actually executes the INSERT operation against MySQL.
+
+D. Read operation
+var students = await _context.Students.ToListAsync();
+
+
+Returns all student records.
+var student = await _context.Students.FindAsync(id);
+
+
+Finds one student using its primary key.
+
+E. Update operation
+student.Name = updatedStudent.Name;
+student.Email = updatedStudent.Email;
+student.Age = updatedStudent.Age;
+
+await _context.SaveChangesAsync();
+
+
+We retrieve the existing database record, modify its properties and save changes.
+
+EF Core tracks the retrieved entity, so it knows which record needs updating.
+
+F. Delete operation
+_context.Students.Remove(student);
+
+await _context.SaveChangesAsync();
+
+
+Remove() marks the record for deletion.
+
+SaveChangesAsync() executes the DELETE operation.
+Why do we use async and await?
+Database queries involve waiting for another system (MySQL).
+
+Using asynchronous methods prevents the server thread from being blocked while waiting for database responses.
+
+This is particularly useful when multiple API requests arrive simultaneously.
+Why do we return IActionResult?
+Because an API should return appropriate HTTP status codes rather than simply returning data.
+Method	Meaning
+Ok()	200 – Successful
+CreatedAtAction()	201 – Resource created
+NotFound()	404 – Record not found
+BadRequest()	400 – Invalid request
